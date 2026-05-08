@@ -1,0 +1,27 @@
+import "std/channel.act";
+import "src/components.act";
+import "src/neuron.act";
+
+defproc source_two (bd<8> R)
+{
+  chp {
+    *[ R ! 2 ]
+  }
+}
+
+defproc source_three (bd<8> R)
+{
+  chp {
+    *[ R ! 3 ]
+  }
+}
+
+defproc test_accumulator_2 ()
+{
+  bd<8> ch_w0, ch_w1, ch_out;
+  
+  source_two       src0(ch_w0);
+  source_three     src1(ch_w1);
+  accumulator_2    acc(ch_w0, ch_w1, ch_out);
+  sink             snk(ch_out);
+}

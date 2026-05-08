@@ -1,0 +1,51 @@
+
+
+defproc weight_mul_1 (bd<8> L, R)
+{
+  int<8> x;
+  chp {
+    *[ L?x ; R ! x ]
+  }
+}
+
+defproc weight_mul_2 (bd<8> L, R)
+{
+  int<8> x;
+  chp {
+    *[ L?x ; R ! (x << 1) ]
+  }
+}
+
+defproc weight_mul_3 (bd<8> L, R)
+{
+  int<8> x;
+  chp {
+    *[ L?x ; R ! ((x << 1) + x) ]   
+  }
+}
+
+
+defproc accumulator_2 (bd<8> W0, W1, R)
+{
+  int<8> w0, w1;
+  chp {
+    *[ W0?w0, W1?w1 ; R ! (w0 + w1) ]
+  }
+}
+
+defproc accumulator_3 (bd<8> W0, W1, W2, R)
+{
+  int<8> w0, w1, w2;
+  chp {
+    *[ W0?w0, W1?w1, W2?w2 ; R ! (w0 + w1 + w2) ]
+  }
+}
+
+
+defproc threshold (pint T; bd<8> L, R)
+{
+  int<8> x;
+  chp {
+    *[ L?x ; [ x >= T -> R ! 1 [] x < T -> R ! 0 ] ]
+  }
+}

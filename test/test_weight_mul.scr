@@ -1,0 +1,8 @@
+// test_weight_mul.scr
+set snk.L.r 0
+set snk.L.a 0
+watch snk.L.d
+watch snk.L.r
+watch snk.L.a
+cycle
+advance 1000

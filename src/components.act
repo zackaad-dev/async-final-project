@@ -17,19 +17,6 @@ defproc source_zero (bd<8> R)
 	}
 }
 
-
-defproc threshold (bd<8> sum, out)
-{
-  int<8> value;
-  chp {
-    *[
-      sum?value;
-      [ value >= 5 -> out!1 [] value < 5 -> out!0 ]
-    ]
-  }
-}
-
-
 defproc sink (bd<8> L)
 {
   int<8> x;

@@ -1,0 +1,19 @@
+import "std/channel.act";
+import "src/components.act";
+import "src/neuron.act";
+
+defproc source_three (bd<8> R)
+{
+  chp {
+    *[ R ! 3 ]
+  }
+}
+
+defproc test_weight_mul ()
+{
+  bd<8> ch_in, ch_out;
+  
+  source_three    src(ch_in);
+  weight_mul_2    mul(ch_in, ch_out);
+  sink            snk(ch_out);
+}
