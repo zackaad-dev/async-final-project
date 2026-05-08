@@ -2,4 +2,5 @@
 
 # Session 1
 Started project
-reusage of lab 2 source, sink, adder
+- Reusage of lab 2 source, sink, adder
+- Ran simple tests for the 3 componentgs

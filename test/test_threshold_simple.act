@@ -1,0 +1,11 @@
+import "src/components.act";
+
+defproc test_threshold_simple ()
+{
+  bd<8> ch_source_to_threshold, ch_threshold_to_sink;
+
+  // Instansiér komponenterne direkte med instansnavne (s0, t0, snk)
+  source_zero s0(ch_source_to_threshold);
+  threshold   t0(ch_source_to_threshold, ch_threshold_to_sink);
+  sink        snk(ch_threshold_to_sink);
+}
