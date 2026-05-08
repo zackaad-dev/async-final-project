@@ -1,0 +1,48 @@
+import "std/channel.act";
+open std::channel;
+
+defproc source_zero (bd<8> R)
+{
+  	chp {
+  *[ 
+    R!0;
+    R!1;
+    R!2;
+    R!3;
+    R!4;
+    R!5;
+    R!6;
+    R!7
+	]
+	}
+}
+
+
+defproc threshold (bd<8> sum, out)
+{
+  int<8> value;
+  chp {
+    *[
+      sum?value;
+      [ value >= 5 -> out!1 [] value < 5 -> out!0 ]
+    ]
+  }
+}
+
+
+defproc sink (bd<8> L)
+{
+  int<8> x;
+  chp {
+    *[ L?x; log("Received: ", x)]
+  }
+}
+
+
+defproc adder (bd<8> A, B, R)
+{
+  int<8> a, b;
+  chp {
+    *[ A?a, B?b ; R!(a+b) ]
+  }
+}
