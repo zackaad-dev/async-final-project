@@ -1,0 +1,4 @@
+watch sk.L.d[0]
+watch sk.L.r
+watch sk.L.a
+advance 100

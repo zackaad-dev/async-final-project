@@ -1,2 +1,7 @@
 /temp
-/.github/*
+/.github/**
+.venv/**
+**/.actsim_history
+report/**
+*.csv
+

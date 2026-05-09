@@ -1,0 +1,3 @@
+watch in0.r
+watch out.d[0]
+advance 100

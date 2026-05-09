@@ -1,0 +1,13 @@
+// test/test_threshold.act
+import "std/channel.act";
+import "../src/neuron.act";
+import "../src/components.act";
+
+defproc test_threshold ()
+{
+  bd<8> in_ch, out_ch;
+
+  source_val<3> src(in_ch);    // sends 3
+  threshold<5>   thr(in_ch, out_ch);  // T=5, so 3 < 5 → output 0
+  sink           sk(out_ch);
+}

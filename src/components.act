@@ -17,6 +17,14 @@ defproc source_zero (bd<8> R)
 	}
 }
 
+template<pint V>
+defproc source_val (bd<8> R)
+{
+  chp {
+    *[ R!V ]
+  }
+}
+
 defproc sink (bd<8> L)
 {
   int<8> x;

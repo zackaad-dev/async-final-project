@@ -1,0 +1,22 @@
+import "std/channel.act";
+import "neuron.act";
+import "components.act";
+
+defproc neuron_n3 () {
+  bd<8> in0, in1, in2;
+  bd<8> w0, w1, w2;
+  bd<8> sum;
+  bd<8> out;
+
+  source_val<2> s0(in0);
+  source_val<4> s1(in1);
+  source_val<3> s2(in2);
+
+  weight_mul_3 wm0(in0, w0);
+  weight_mul_1 wm1(in1, w1);
+  weight_mul_2 wm2(in2, w2);
+
+  accumulator_3 acc(w0, w1, w2, sum);
+  threshold<5> thr(sum, out);
+  sink sk(out);
+}

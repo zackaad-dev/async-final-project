@@ -1,5 +1,8 @@
 
 
+import "std/channel.act";
+open std::channel;
+
 defproc weight_mul_1 (bd<8> L, R)
 {
   int<8> x;
@@ -41,8 +44,25 @@ defproc accumulator_3 (bd<8> W0, W1, W2, R)
   }
 }
 
+defproc accumulator_4 (bd<8> W0, W1, W2, W3, R)
+{
+  int<8> w0, w1, w2, w3;
+  chp {
+    *[ W0?w0, W1?w1, W2?w2, W3?w3 ; R ! (w0 + w1 + w2 + w3) ]
+  }
+}
 
-defproc threshold (pint T; bd<8> L, R)
+defproc accumulator_5 (bd<8> W0, W1, W2, W3, W4, R)
+{
+  int<8> w0, w1, w2, w3, w4;
+  chp {
+    *[ W0?w0, W1?w1, W2?w2, W3?w3, W4?w4 ; R ! (w0 + w1 + w2 + w3 + w4) ]
+  }
+}
+
+
+template<pint T>
+defproc threshold (bd<8> L, R)
 {
   int<8> x;
   chp {
